@@ -68,6 +68,10 @@ body {
     left: 0;
 }
 
+.menu-item {
+    padding: 10px;
+}
+
 @media only screen and (max-width: 550px) {
 
     #left-menu {
@@ -77,18 +81,31 @@ body {
 
     #editor {
         margin-left: 0;
+        width: 100vw;
+    }
+
+    #today-view {
+        width: 100vw;
     }
 }
 
 
+@media only screen and (min-width: 550px) {
+    #editor {
+        margin-left: 305px;
+        width: calc(100vw - 305px);
+    }
+
+    #today-view {
+        width: calc(100vw - 305px);
+    }
+}
 #list-holder {
     padding-top: 2rem;
     padding-left: 1rem;
 }
 #editor {
-    margin-left: 305px;
     height: calc(100vh - 44px);
-    width: calc(100vw - 305px);
 
     display: flex;
     flex-direction: column;
@@ -113,7 +130,6 @@ body {
 
 #today-view {
     height: calc(100vh - (44px + 120px));
-    width: calc(100vw - 305px);
 }
 
 #lists-box {
@@ -127,6 +143,7 @@ body {
 
 #lists {
     max-width: 800px;
+    min-width: 280px;
     padding: 0 55px;
 }
 
@@ -134,8 +151,17 @@ body {
     margin-bottom: 50px;
 }
 
+#section-list {
+    display: flex;
+    justify-content: center;
+
+}
+
 
 
 .todo {
     padding: 10px;
+}
+.todo-item {
+    border-bottom: solid 1px #282828;
 }
