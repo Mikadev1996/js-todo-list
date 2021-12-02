@@ -16,15 +16,17 @@
             <div id="content-wrapper">
                 <div id="left-menu">
                     <div id="list-holder">
-                        <ul>
-                            <li>Inbox</li>
-                            <li>Today</li>
-                            <li>Upcoming</li>
+                        <ul class="list">
+                            <li class="menu-item">Inbox</li>
+                            <li class="menu-item">Today</li>
+                            <li class="menu-item">Upcoming</li>
                         </ul>
-
-                        <ul>Projects
-                            <li>Example 1</li>
-                            <li>Example 2</li>
+                        
+                        <header class="menu-item"><strong>Projects</strong></header>
+                        <hr/>
+                        <ul class="list">
+                            <li class="menu-item">Default Project</li>
+                            <li class="menu-item">Example Project</li>
                         </ul>
 
                     </div>
@@ -41,25 +43,27 @@
                     <div id="today-view">
                         <div id="lists-box">
                             <div id="lists">
-                                <ul class="list-collection">
-                                    <li class="list">
-                                        <header class="todo-header todo">Todo List Group 1</header>
-                                        <ul class="todo todo-list">
-                                            <li class="todo todo-item">Group 1 Todo</li>
-                                            <li class="todo todo-item">Group 1 Todo</li>
-                                            <li class="todo todo-item">Group 1 Todo</li>
-                                            <li class="todo todo-btn"><button>+ Add Task</button></li>
-                                        </ul>
-                                    </li>
+                                <section id="section-list">
+                                    <ul class="list-collection">
+                                        <li class="list">
+                                            <header class="todo-header todo">Todo List Group 1</header>
+                                            <ul class="todo todo-list">
+                                                <li class="todo todo-item">Group 1 Todo</li>
+                                                <li class="todo todo-item">Group 1 Todo</li>
+                                                <li class="todo todo-item">Group 1 Todo</li>
+                                                <li class="todo todo-btn"><button>+ Add Task</button></li>
+                                            </ul>
+                                        </li>
 
-                                    <li class="list">
-                                        <header class="todo-header todo">Todo List Group 2</header>
-                                        <ul class="todo todo-list">
-                                            <li class="todo todo-item">Group 2 Todo</li>
-                                            <li class="todo todo-btn"><button>+ Add Task</button></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                        <li class="list">
+                                            <header class="todo-header todo">Todo List Group 2</header>
+                                            <ul class="todo todo-list">
+                                                <li class="todo todo-item">Group 2 Todo</li>
+                                                <li class="todo todo-btn"><button>+ Add Task</button></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </section>
 
                             </div>
 
