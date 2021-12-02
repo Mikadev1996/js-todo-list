@@ -12,6 +12,14 @@
 
 li {
     list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -101,4 +109,33 @@ body {
     height: 100%;
     width: 100%;
     padding: 0 8rem;
+}
+
+#today-view {
+    height: calc(100vh - (44px + 120px));
+    width: calc(100vw - 305px);
+}
+
+#lists-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+#lists {
+    max-width: 800px;
+    padding: 0 55px;
+}
+
+.list {
+    margin-bottom: 50px;
+}
+
+
+
+.todo {
+    padding: 10px;
 }
