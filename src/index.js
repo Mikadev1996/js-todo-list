@@ -1,4 +1,5 @@
 import './style.css'
+import {mainPage} from "./mainPage";
 
 function createElement(type, id, classes, text) {
     const element = document.createElement(type);
@@ -15,5 +16,8 @@ function createElement(type, id, classes, text) {
 
     return element;
 }
+
+document.body.appendChild(mainPage());
+
 
 export {createElement}

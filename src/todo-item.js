@@ -17,3 +17,13 @@ class Todo {
         this._title = value;
     }
 }
+
+let todos = [
+    {
+      id: 1,
+      title: "Title",
+      description: "First Todo",
+      date: "Date DD/MM/YYYY",
+      project: "Project",
+    },
+];
