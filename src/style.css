@@ -14,6 +14,22 @@
     font-weight: bold;
 }
 
+button {
+    border: none;
+}
+
+input {
+    color: whitesmoke;
+    margin: 5px;
+    padding: 5px;
+    background: #282828;
+    border: none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
 li {
     list-style: none;
     margin: 0;
@@ -65,10 +81,12 @@ body {
 
 
 #left-menu {
+    font-weight: bold;
+    color: #171717;
     position: fixed;
     width: 305px;
     height: calc(100vh - 44px);
-    background: #282828;
+    background: #EC741C;
     left: 0;
 }
 
@@ -158,14 +176,49 @@ body {
 #section-list {
     display: flex;
     justify-content: center;
-
 }
-
-
 
 .todo {
     padding: 10px;
 }
 .todo-item {
     border-bottom: solid 1px #282828;
+}
+
+.input-section {
+    width: 300px;
+    color: whitesmoke;
+    background: #282828;
+    padding: 5px;
+    border: darkgrey 1px solid;
+    border-radius: 3px;
+}
+
+.inputs {
+    width: 90%;
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.option-btn {
+    padding: 7px;
+    margin: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.confirm-add-todo {
+    background: #EC741C;
+    color: black;
+    padding: 10px;
+}
+
+.cancel-add-todo {
+    background: #282828;
+    border: darkgrey 1px solid;
+    color: whitesmoke;
 }

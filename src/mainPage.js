@@ -127,11 +127,13 @@ function mainPage() {
                     const todoUnorderedList = createElement("ul", null, ["todo", "todo-list"]);
 
                     exampleTodos.forEach((todo) => {
-                        let todoListItem = createElement("li", todo.id, ["todo", "todo-item"], todo.description);
+                        let todoListItem = createElement("li", todo.id, ["todo", "todo-item"], todo.title);
+                        let todoDescription = createElement("p", null, null, todo.description);
+                        todoListItem.append(todoDescription);
                         todoUnorderedList.append(todoListItem);
                     })
 
-                    const addTodoBtnListItem = createElement("li", null, ["todo", "todo-btn"]);
+                    const addTodoBtnListItem = createElement("li", "new-todo-list-item", ["todo", "todo-btn"]);
                     const addTodoBtn = createElement("button", null, ["add-todo"], "+ Add Todo");
 
                     addTodoBtnListItem.append(addTodoBtn);
