@@ -1,4 +1,5 @@
 import {createElement} from "./index";
+import {todos, confirmAddTodo} from "./create-todo";
 
 let menuItems = [
     {
@@ -7,11 +8,11 @@ let menuItems = [
     },
     {
         id: 2,
-        menu: "Inbox",
+        menu: "Today",
     },
     {
       id: 3,
-      menu: "Upcoming",
+      menu: "Week",
     },
 ];
 
@@ -20,38 +21,28 @@ let projects = [
         id: 1,
         menu: "Default Project",
     },
-    {
-        id: 2,
-        menu: "Example Project",
-    }
 ]
 
-let exampleTodos = [
-    {
-        id: 1,
-        title: "Title",
-        description: "First Todo",
-        date: "Date DD/MM/YYYY",
-        project: "Project",
-    },
-    {
-        id: 2,
-        title: "Title 2",
-        description: "Second Todo",
-        date: "Date DD/MM/YYYY",
-        project: "Project",
-    },
-    {
-        id: 3,
-        title: "Title 3",
-        description: "Third Todo",
-        date: "Date DD/MM/YYYY",
-        project: "Project",
-    },
-];
+function refreshTodos() {
+    const todoUnorderedList = document.getElementById("default");
+    todoUnorderedList.innerHTML = "";
 
+    todos.forEach((todo) => {
+        let todoListItem = createElement("li", todo.id, ["todo", "todo-item"], todo.title);
+        let todoDescription = createElement("p", null, null, todo.description);
+        todoListItem.append(todoDescription);
+        todoUnorderedList.append(todoListItem);
+    })
 
+    const addTodoBtnListItem = createElement("li", "new-todo-list-item", ["todo", "todo-btn"]);
+    const addTodoBtn = createElement("button", null, ["add-todo"], "+ Add Todo");
+    addTodoBtnListItem.append(addTodoBtn);
+    todoUnorderedList.append(addTodoBtnListItem);
+    addTodoBtn.onclick = addTodoUI;
 
+    addTodoBtnListItem.append(addTodoBtn);
+    return addTodoBtnListItem;
+}
 
 function mainPage() {
     const app = createElement("div", "app");
@@ -114,7 +105,7 @@ function mainPage() {
                     return viewHeaderDiv;
                 }
 
-                function todayView() {
+                function projectView() {
                     const todayViewDiv = createElement("div", "today-view");
                     const listsBox = createElement("div", "lists-box");
                     const listsDiv = createElement("div", "lists");
@@ -124,17 +115,20 @@ function mainPage() {
 
                     const defaultList = createElement("li", null, ["list"]);
                     const defaultListHeader = createElement("header", null, ["todo-header", "todo"], "Todo List Group 1");
-                    const todoUnorderedList = createElement("ul", null, ["todo", "todo-list"]);
+                    const todoUnorderedList = createElement("ul", "default", ["todo", "todo-list"]);
 
-                    exampleTodos.forEach((todo) => {
+
+                    todos.forEach((todo) => {
                         let todoListItem = createElement("li", todo.id, ["todo", "todo-item"], todo.title);
                         let todoDescription = createElement("p", null, null, todo.description);
                         todoListItem.append(todoDescription);
                         todoUnorderedList.append(todoListItem);
                     })
 
+
                     const addTodoBtnListItem = createElement("li", "new-todo-list-item", ["todo", "todo-btn"]);
                     const addTodoBtn = createElement("button", null, ["add-todo"], "+ Add Todo");
+                    addTodoBtn.onclick = addTodoUI
 
                     addTodoBtnListItem.append(addTodoBtn);
                     todoUnorderedList.append(addTodoBtnListItem);
@@ -146,11 +140,10 @@ function mainPage() {
                     listsBox.append(listsDiv);
                     todayViewDiv.append(listsBox);
 
-
                     return todayViewDiv;
                 }
 
-                editorDiv.append(viewHeader(), todayView());
+                editorDiv.append(viewHeader(), projectView());
 
                 return editorDiv;
             }
@@ -166,4 +159,57 @@ function mainPage() {
     return app;
 }
 
-export {mainPage};
+function addTodoUI() {
+    const newTodoListItem= document.getElementById("new-todo-list-item");
+
+    function newTodo() {
+        const newTodoDiv = createElement("div", null, ["new-todo"]);
+        const inputSection = createElement("div", null, ["input-section"]);
+
+        const titleSpan = createElement("span");
+        const title = createElement("input", "default-title", ["inputs", "input-title"]);
+        title.type = "text";
+        title.placeholder = "eg., Get pastries sun at 9"
+        titleSpan.append(title);
+
+        const descSpan = createElement("span");
+        const desc = createElement("input", "default-desc", ["inputs", "input-title"]);
+        desc.type = "text";
+        desc.placeholder = "Description";
+        descSpan.append(desc);
+
+        inputSection.append(titleSpan, descSpan);
+
+        function options() {
+            const optionsDiv = createElement("div", null, ["options"]);
+            const confirmDiv = createElement("div");
+            const confirmBtn = createElement("button", "default-confirm", ["option-btn", "confirm-add-todo"], "Add task");
+            confirmDiv.append(confirmBtn)
+
+            confirmBtn.addEventListener("click", () => {
+
+                confirmAddTodo("default");
+            })
+
+            const cancelDiv = createElement("div");
+            const cancelBtn = createElement("button", null, ["option-btn", "cancel-add-todo"], "Cancel");
+            confirmDiv.append(cancelBtn)
+            cancelBtn.onclick = refreshTodos;
+
+            optionsDiv.append(confirmDiv, cancelDiv);
+
+            return optionsDiv;
+        }
+
+        newTodoDiv.append(inputSection, options());
+
+        return newTodoDiv;
+    }
+
+    newTodoListItem.innerHTML = "";
+    newTodoListItem.append(newTodo());
+}
+
+
+
+export {mainPage, refreshTodos};

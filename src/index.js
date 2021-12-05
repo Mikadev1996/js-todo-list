@@ -1,7 +1,5 @@
 import './style.css'
 import {mainPage} from "./mainPage";
-import {test} from "./create-todo";
-
 
 function createElement(type, id, classes, text) {
     const element = document.createElement(type);
@@ -20,7 +18,5 @@ function createElement(type, id, classes, text) {
 }
 
 document.body.appendChild(mainPage());
-
-test();
 
 export {createElement}
