@@ -16,6 +16,7 @@
 
 button {
     border: none;
+    background: none;
 }
 
 input {
@@ -50,6 +51,11 @@ body {
     color: whitesmoke;
     overflow: hidden;
     display: block;
+}
+
+p {
+    margin: 3px 0;
+    color: darkgrey;
 }
 
 #app {
@@ -142,11 +148,15 @@ body {
 
 #header-content {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
-    padding: 0 0 8rem 14rem;
+    margin-left: 4rem;
+}
+
+.todo-header {
+    border-bottom: 1px solid #282828;
 }
 
 #today-view {
@@ -160,33 +170,59 @@ body {
     justify-content: center;
     width: 100%;
     padding: 2rem 0;
-    margin: 0 10rem;
 }
 
 #lists {
-    max-width: 800px;
-    padding: 0 55px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .list {
     margin-bottom: 50px;
 }
 
-#section-list {
-    display: flex;
-    justify-content: center;
-}
-
 .todo {
-    padding: 10px;
+    padding: 6px;
 }
 .todo-item {
+    min-width: 300px;
     border-bottom: solid 1px #282828;
-    width: 600px;
+    font-size: 14px;
+}
+
+.list-content {
+    display: flex;
+}
+
+.checkbox-btn {
+    height: 100%;
+
+}
+
+.checkbox-div {
+    margin: 2px 10px;
+}
+
+.checkbox {
+    width: 15px;
+    height: 15px;
+}
+
+
+.todo-btn {
+    margin-top: 1rem;
+}
+
+.list-text {
+    margin: 3px 0;
 }
 
 .input-section {
-    width: 600px;
+    width: 90%;
     color: whitesmoke;
     background: #282828;
     padding: 5px;
@@ -215,7 +251,8 @@ body {
     border-radius: 3px;
 }
 
-.confirm-add-todo {
+.add-todo {
+    border-radius: 3px;
     background: #1a73e8;
     color: black;
     padding: 10px;
@@ -226,3 +263,4 @@ body {
     border: darkgrey 1px solid;
     color: whitesmoke;
 }
+
