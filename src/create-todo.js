@@ -1,4 +1,5 @@
 import {refreshTodos} from "./mainPage";
+import { compareAsc, format} from "date-fns";
 
 const todoFactory = (id, project, title, description, date)  => {
     return {id, project, title, description, date}
@@ -20,8 +21,8 @@ let todos = [
 function confirmAddTodo(project) {
     const titleText = document.getElementById("default-title").value;
     const descText = document.getElementById("default-desc").value;
-    const newTodo = todoFactory(todos.length ,project, titleText, descText, "Date");
-
+    const newTodo = todoFactory(todos.length ,project, titleText, descText, new Date());
+    console.log(newTodo);
     if (titleText.length === 0) {
         window.alert("Please insert a title");
     } else {
