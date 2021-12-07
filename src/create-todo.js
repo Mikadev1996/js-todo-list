@@ -31,5 +31,18 @@ function confirmAddTodo(project) {
     }
 }
 
-export {confirmAddTodo, todos};
+function deleteTodo(project, id) {
+    console.log(todos[id]);
+    for (let i = 0; i < todos.length; i++) {
+        if (todos[i].id === id) {
+            todos.splice(i, 1);
+            break;
+        }
+    }
+    refreshTodos();
+}
+
+
+
+export {confirmAddTodo, todos, deleteTodo};
 

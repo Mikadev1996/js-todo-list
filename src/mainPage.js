@@ -1,5 +1,6 @@
 import {createElement} from "./index";
 import {todos, confirmAddTodo} from "./create-todo";
+import {deleteTodo} from "./create-todo";
 
 let menuItems = [
     {
@@ -33,6 +34,11 @@ function refreshTodos() {
         let listContentDiv = createElement("div", null, ["list-content"]);
         let checkboxDiv = createElement("div", null, ["checkbox-div"]);
         let checkBoxBtn = createElement("button", `checkbox-${todo.id}`, ["checkbox-btn"]);
+        checkBoxBtn.addEventListener("click", () => {
+            deleteTodo(todo.project, todo.id);
+        })
+
+
         let checkboxImage = createElement("img", null, ["checkbox"]);
         checkboxImage.src = "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-check-mark-circle-thin.png&r=242&g=242&b=242";
         checkBoxBtn.append(checkboxImage);
@@ -137,12 +143,15 @@ function mainPage() {
                         let listContentDiv = createElement("div", null, ["list-content"]);
                         let checkboxDiv = createElement("div", null, ["checkbox-div"]);
                         let checkBoxBtn = createElement("button", `checkbox-${todo.id}`, ["checkbox-btn"]);
+                        checkBoxBtn.addEventListener("click", () => {
+                            deleteTodo(todo.project, todo.id);
+                        })
                         let checkboxImage = createElement("img", null, ["checkbox"]);
                         checkboxImage.src = "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-check-mark-circle-thin.png&r=242&g=242&b=242";
                         checkBoxBtn.append(checkboxImage);
                         checkboxDiv.append(checkBoxBtn);
 
-                        let todoTextDiv = createElement("div", null, ["list-text"], todo.title);
+                        let todoTextDiv = createElement("span", null, ["list-text"], todo.title);
                         let todoDescription = createElement("p", null, null, todo.description);
                         todoTextDiv.append(todoDescription);
 
