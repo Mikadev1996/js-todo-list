@@ -24,19 +24,22 @@ let projects = [
     },
 ]
 
-function refreshTodos() {
-    const todoUnorderedList = document.getElementById("default");
+function refreshTodos(project) {
+    const todoUnorderedList = document.getElementById(project);
+    let test = document.getElementById("default");
+    console.log(todoUnorderedList, test);
     todoUnorderedList.innerHTML = "";
 
-    todos.projectTodos.forEach((todo) => {
+    todos.forEach((todo) => {
         let listItem = createElement("li", `list-${todo.project}-${todo.id}`, ["todo", "todo-item"]);
 
         let listContentDiv = createElement("div", null, ["list-content"]);
         let checkboxDiv = createElement("div", null, ["checkbox-div"]);
         let checkBoxBtn = createElement("button", `checkbox-${todo.id}`, ["checkbox-btn"]);
-        checkBoxBtn.addEventListener("click", () => {
+
+        checkBoxBtn.onclick = () => {
             deleteTodo(todo.project, todo.id);
-        })
+        }
 
         let checkboxImage = createElement("img", null, ["checkbox"]);
         checkboxImage.src = "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-check-mark-circle-thin.png&r=242&g=242&b=242";

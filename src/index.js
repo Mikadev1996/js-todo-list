@@ -19,7 +19,7 @@ function createElement(type, id, classes, text) {
 }
 
 document.body.appendChild(mainPage());
-refreshTodos();
+refreshTodos("default");
 
 let test = document.getElementById("default")
 console.log(test);
