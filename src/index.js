@@ -1,5 +1,6 @@
 import './style.css'
 import {mainPage} from "./mainPage";
+import {refreshTodos} from "./mainPage";
 
 function createElement(type, id, classes, text) {
     const element = document.createElement(type);
@@ -18,5 +19,9 @@ function createElement(type, id, classes, text) {
 }
 
 document.body.appendChild(mainPage());
+refreshTodos();
+
+let test = document.getElementById("default")
+console.log(test);
 
 export {createElement}

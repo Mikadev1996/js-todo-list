@@ -9,12 +9,21 @@ const todoFactory = (id, project, title, description, date)  => {
 
 let todos = [
     {
-        id: 0,
-        project: "Default",
-        title: "Title",
-        description: "First Todo",
-        date: "Date DD/MM/YYYY",
+        project: "default",
+        projectTodos: [
+            {
+                id: 0,
+                title: "Title",
+                description: "First Todo",
+                date: "Date DD/MM/YYYY",
+            },
+        ],
+
     },
+    {
+        project: "test",
+        projectInfo: [],
+    }
 ];
 
 
@@ -26,7 +35,11 @@ function confirmAddTodo(project) {
     if (titleText.length === 0) {
         window.alert("Please insert a title");
     } else {
-        todos.push(newTodo);
+        for (let i = 0; i < todos.length; i ++) {
+            if (todos[i].project === project) {
+                todos[i].projectTodos.push(newTodo);
+            }
+        }
         refreshTodos();
     }
 }
@@ -34,12 +47,14 @@ function confirmAddTodo(project) {
 function deleteTodo(project, id) {
     console.log(todos[id]);
     for (let i = 0; i < todos.length; i++) {
-        if (todos[i].id === id) {
-            todos.splice(i, 1);
-            break;
+        if (todos[i].project === project) {
+            if (todos[i].id === id) {
+                todos.splice(i, 1);
+                break;
+            }
         }
     }
-    refreshTodos();
+    refreshTodos(project);
 }
 
 

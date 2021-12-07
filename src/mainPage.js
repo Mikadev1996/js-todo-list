@@ -28,7 +28,7 @@ function refreshTodos() {
     const todoUnorderedList = document.getElementById("default");
     todoUnorderedList.innerHTML = "";
 
-    todos.forEach((todo) => {
+    todos.projectTodos.forEach((todo) => {
         let listItem = createElement("li", `list-${todo.project}-${todo.id}`, ["todo", "todo-item"]);
 
         let listContentDiv = createElement("div", null, ["list-content"]);
@@ -37,7 +37,6 @@ function refreshTodos() {
         checkBoxBtn.addEventListener("click", () => {
             deleteTodo(todo.project, todo.id);
         })
-
 
         let checkboxImage = createElement("img", null, ["checkbox"]);
         checkboxImage.src = "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-check-mark-circle-thin.png&r=242&g=242&b=242";
@@ -60,7 +59,9 @@ function refreshTodos() {
     addTodoBtn.onclick = addTodoUI;
 
     addTodoBtnListItem.append(addTodoBtn);
-    return addTodoBtnListItem;
+    todoUnorderedList.append(addTodoBtnListItem);
+
+    return todoUnorderedList;
 }
 
 function mainPage() {
@@ -136,37 +137,6 @@ function mainPage() {
                     const defaultListHeader = createElement("header", null, ["todo-header", "todo"], " Todo List Group 1");
                     const todoUnorderedList = createElement("ul", "default", ["todo", "todo-list"]);
 
-
-                    todos.forEach((todo) => {
-                        let listItem = createElement("li", `list-${todo.project}-${todo.id}`, ["todo", "todo-item"]);
-
-                        let listContentDiv = createElement("div", null, ["list-content"]);
-                        let checkboxDiv = createElement("div", null, ["checkbox-div"]);
-                        let checkBoxBtn = createElement("button", `checkbox-${todo.id}`, ["checkbox-btn"]);
-                        checkBoxBtn.addEventListener("click", () => {
-                            deleteTodo(todo.project, todo.id);
-                        })
-                        let checkboxImage = createElement("img", null, ["checkbox"]);
-                        checkboxImage.src = "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-check-mark-circle-thin.png&r=242&g=242&b=242";
-                        checkBoxBtn.append(checkboxImage);
-                        checkboxDiv.append(checkBoxBtn);
-
-                        let todoTextDiv = createElement("span", null, ["list-text"], todo.title);
-                        let todoDescription = createElement("p", null, null, todo.description);
-                        todoTextDiv.append(todoDescription);
-
-                        listContentDiv.append(checkboxDiv, todoTextDiv);
-                        listItem.append(listContentDiv);
-                        todoUnorderedList.append(listItem);
-                    })
-
-                    const addTodoBtnListItem = createElement("li", "new-todo-list-item", ["todo", "todo-btn"]);
-                    const addTodoBtn = createElement("button", null, ["add-todo"], "+ Add Todo");
-                    addTodoBtn.onclick = addTodoUI
-
-                    addTodoBtnListItem.append(addTodoBtn);
-                    todoUnorderedList.append(addTodoBtnListItem);
-
                     defaultList.append(defaultListHeader, todoUnorderedList);
                     listCollection.append(defaultList);
                     listSection.append(listCollection);
@@ -225,7 +195,6 @@ function addTodoUI() {
                 confirmAddTodo("default");
             })
 
-
             const cancelDiv = createElement("div");
             const cancelBtn = createElement("button", null, ["option-btn", "cancel-add-todo"], "Cancel");
             confirmDiv.append(cancelBtn)
@@ -240,11 +209,8 @@ function addTodoUI() {
 
         return newTodoDiv;
     }
-
     newTodoListItem.innerHTML = "";
     newTodoListItem.append(newTodo());
 }
-
-
 
 export {mainPage, refreshTodos};
