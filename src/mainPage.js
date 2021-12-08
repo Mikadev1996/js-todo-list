@@ -26,19 +26,18 @@ let projects = [
 
 function refreshTodos(project) {
     const todoUnorderedList = document.getElementById(project);
-    let test = document.getElementById("default");
-    console.log(todoUnorderedList, test);
     todoUnorderedList.innerHTML = "";
 
-    todos.forEach((todo) => {
-        let listItem = createElement("li", `list-${todo.project}-${todo.id}`, ["todo", "todo-item"]);
+    const todoList = todos[project].todos;
+    todoList.forEach((todo) => {
+        let listItem = createElement("li", `list-${project}-${todo.id}`, ["todo", "todo-item"]);
 
         let listContentDiv = createElement("div", null, ["list-content"]);
         let checkboxDiv = createElement("div", null, ["checkbox-div"]);
         let checkBoxBtn = createElement("button", `checkbox-${todo.id}`, ["checkbox-btn"]);
 
         checkBoxBtn.onclick = () => {
-            deleteTodo(todo.project, todo.id);
+            deleteTodo(project, todo.id);
         }
 
         let checkboxImage = createElement("img", null, ["checkbox"]);
@@ -59,7 +58,9 @@ function refreshTodos(project) {
     const addTodoBtn = createElement("button", null, ["add-todo"], "+ Add Todo");
     addTodoBtnListItem.append(addTodoBtn);
     todoUnorderedList.append(addTodoBtnListItem);
-    addTodoBtn.onclick = addTodoUI;
+    addTodoBtn.onclick = () => {
+        addTodoUI(project);
+    };
 
     addTodoBtnListItem.append(addTodoBtn);
     todoUnorderedList.append(addTodoBtnListItem);
@@ -166,7 +167,7 @@ function mainPage() {
     return app;
 }
 
-function addTodoUI() {
+function addTodoUI(project) {
     const newTodoListItem= document.getElementById("new-todo-list-item");
 
     function newTodo() {
@@ -194,14 +195,15 @@ function addTodoUI() {
             confirmDiv.append(confirmBtn)
 
             confirmBtn.addEventListener("click", () => {
-
-                confirmAddTodo("default");
+                confirmAddTodo(project);
             })
 
             const cancelDiv = createElement("div");
             const cancelBtn = createElement("button", null, ["option-btn", "cancel-add-todo"], "Cancel");
             confirmDiv.append(cancelBtn)
-            cancelBtn.onclick = refreshTodos;
+            cancelBtn.onclick = () => {
+                refreshTodos(project);
+            }
 
             optionsDiv.append(confirmDiv, cancelDiv);
 
