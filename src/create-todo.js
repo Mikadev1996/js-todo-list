@@ -1,9 +1,14 @@
-import {refreshTodos} from "./mainPage";
+import {refreshTodos,} from "./mainPage";
 import { compareAsc, format} from "date-fns";
 
 const todoFactory = (id, title, description, date)  => {
     return {id, title, description, date}
 };
+
+let projects = [
+    "default",
+    "exampleSecond",
+]
 
 let todos = {
     default: {
@@ -21,8 +26,8 @@ let todos = {
         todos: [
             {
                 id: 0,
-                title: "Title",
-                description: "First Todo",
+                title: "Example Second",
+                description: "Second Todo",
                 date: "Date DD/MM/YYYY",
             },
 
@@ -55,7 +60,5 @@ function deleteTodo(project, id) {
     refreshTodos(project);
 }
 
-
-
-export {confirmAddTodo, todos, deleteTodo};
+export {confirmAddTodo, projects, todos, deleteTodo};
 

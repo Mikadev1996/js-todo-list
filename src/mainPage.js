@@ -1,5 +1,5 @@
 import {createElement} from "./index";
-import {todos, confirmAddTodo} from "./create-todo";
+import {projects,todos, confirmAddTodo} from "./create-todo";
 import {deleteTodo} from "./create-todo";
 
 let menuItems = [
@@ -17,15 +17,9 @@ let menuItems = [
     },
 ];
 
-let projects = [
-    {
-        id: 1,
-        menu: "Default Project",
-    },
-]
-
 function refreshTodos(project) {
-    const todoUnorderedList = document.getElementById(project);
+    const todoUnorderedList = document.getElementById("default");
+    console.log("refresh todo ", project);
     todoUnorderedList.innerHTML = "";
 
     const todoList = todos[project].todos;
@@ -58,6 +52,7 @@ function refreshTodos(project) {
     const addTodoBtn = createElement("button", null, ["add-todo"], "+ Add Todo");
     addTodoBtnListItem.append(addTodoBtn);
     todoUnorderedList.append(addTodoBtnListItem);
+
     addTodoBtn.onclick = () => {
         addTodoUI(project);
     };
@@ -102,12 +97,15 @@ function mainPage() {
                 projectUnorderedList.append(projectHeader);
 
                 projects.forEach((project) => {
-                    let projectListItem = createElement("li", null, ["menu-item"], project.menu);
+                    let projectListItem = createElement("li", null, ["menu-item"], project);
+                    projectListItem.addEventListener("click", () => {
+                        console.log(project);
+                        refreshTodos(project);
+                    })
                     projectUnorderedList.append(projectListItem);
                 })
 
                 listHolderDiv.append(menuUnorderedList, projectUnorderedList)
-
                 leftMenuDiv.append(listHolderDiv);
                 leftMenuDiv.append(listHolderDiv);
 
@@ -168,6 +166,9 @@ function mainPage() {
 }
 
 function addTodoUI(project) {
+
+    console.log("addTodoUI function");
+
     const newTodoListItem= document.getElementById("new-todo-list-item");
 
     function newTodo() {
@@ -217,5 +218,12 @@ function addTodoUI(project) {
     newTodoListItem.innerHTML = "";
     newTodoListItem.append(newTodo());
 }
+
+function addProjectUI() {
+
+}
+
+
+
 
 export {mainPage, refreshTodos};
