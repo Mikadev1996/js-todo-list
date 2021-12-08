@@ -40,7 +40,6 @@ function confirmAddTodo(project) {
     const descText = document.getElementById("default-desc").value;
     const newTodo = todoFactory(todos[project].todos.length, titleText, descText, new Date());
 
-    console.log(newTodo);
     if (titleText.length === 0) {
         window.alert("Please insert a title");
     } else {

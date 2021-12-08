@@ -93,8 +93,12 @@ function mainPage() {
 
                 const projectUnorderedList = createElement("ul", null, ["list"]);
 
+                const headerDiv = createElement("div", null, ["add-project"], null);
                 const projectHeader = createElement("header", null, ["menu-item", "bold"], "Projects");
-                projectUnorderedList.append(projectHeader);
+                const addProject = createElement("div", "add-project", null, "+");
+
+                headerDiv.append(projectHeader, addProject)
+                projectUnorderedList.append(headerDiv);
 
                 projects.forEach((project) => {
                     let projectListItem = createElement("li", null, ["menu-item"], project);
@@ -220,6 +224,7 @@ function addTodoUI(project) {
 }
 
 function addProjectUI() {
+    document.getElementById("add-project");
 
 }
 

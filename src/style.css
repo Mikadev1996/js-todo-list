@@ -64,6 +64,15 @@ p {
     height: 100vh;
 }
 
+.add-project {
+    display: flex;
+    align-items: center;
+}
+
+#add-project {
+    margin-left: 160px;
+}
+
 #top-bar {
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
     height: 44px;
@@ -264,3 +273,24 @@ p {
     color: whitesmoke;
 }
 
+#overlay {
+    z-index: -1;
+    justify-content: center;
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    box-sizing: border-box;
+
+
+}
+
+#add-project-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 400px;
+    height: 600px;
+
+}
