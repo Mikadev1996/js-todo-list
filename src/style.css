@@ -274,23 +274,41 @@ p {
 }
 
 #overlay {
-    z-index: -1;
-    justify-content: center;
-    position: fixed;
-    display: flex;
+    margin: auto;
+    text-align: center;
     width: 100vw;
     height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.35);
+
+    display: flex;
     align-items: center;
-    box-sizing: border-box;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
 
 
+    transition: all 0.2s ease;
 }
 
 #add-project-box {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background: whitesmoke;
+    border-radius: 10px;
 
-    width: 400px;
-    height: 600px;
+    padding: 20px;
+    width: 300px;
+    height: 500px;
+}
 
+#editor {
+    transition: all 0.4s ease-in;
 }
