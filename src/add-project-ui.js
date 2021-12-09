@@ -1,30 +1,44 @@
 import {createElement} from "./index";
-import {confirmAddTodo} from "./create-todo";
-import {refreshTodos} from "./mainPage";
+import {todos} from "./create-todo";
 import {projects} from "./create-todo";
 import {renderProjects} from "./render-projects";
+
+
 
 function addProjectListener() {
     const confirmProject = document.getElementById("project-confirm");
     const newProjectTitle = document.getElementById("project-name-input");
     const overlay = document.getElementById("overlay");
 
+
+
     confirmProject.onclick = () => {
-        console.log(newProjectTitle.value);
         if (newProjectTitle.value.length !== 0) {
             projects.push(newProjectTitle.value);
+            updateTodoProjects(newProjectTitle.value);
             renderProjects();
             resetDropDown();
         } else {
             window.alert("Please Enter a Project Name");
         }
+    }
 
+    function updateTodoProjects(project) {
+        todos[project] = {
+            todo:  [
+                {
+                    id: 0,
+                    title: "Title",
+                    description: "First Todo",
+                    date: "Date DD/MM/YYY",
+                }
+            ]
+        }
     }
 
     window.addEventListener("click", handleClick)
 
     function handleClick(input) {
-        console.log(input.target.id);
         if (input.target.id === "overlay") {
             resetDropDown();
         }

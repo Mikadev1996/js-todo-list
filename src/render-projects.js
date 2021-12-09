@@ -13,6 +13,7 @@ function renderProjects() {
     headerDiv.append(projectHeader, addProject)
     projectList.append(headerDiv);
     projects.forEach((project) => {
+        console.log(project);
         let projectListItem = createElement("li", null, ["menu-item"], project);
         projectListItem.addEventListener("click", () => {
             console.log(project);
