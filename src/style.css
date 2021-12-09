@@ -305,10 +305,40 @@ p {
     border-radius: 10px;
 
     padding: 20px;
-    width: 300px;
-    height: 500px;
+    width: 200px;
+    height: 200px;
 }
 
 #editor {
     transition: all 0.4s ease-in;
+}
+
+#project-header {
+    height: 50px;
+    width: 100%;
+    color: #171717;
+    font-weight: bold;
+}
+
+#project-form-div {
+    height: 100px;
+    width: 100%;
+
+}
+
+#project-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.text-inputs {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#project-name-input {
+    background: darkgrey;
+    border-radius: 3px;
+    color: #171717;
 }

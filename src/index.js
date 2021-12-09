@@ -2,6 +2,7 @@ import './style.css'
 import {mainPage} from "./mainPage";
 import {refreshTodos} from "./mainPage";
 import {addProjectListener, overlay} from "./add-project-ui";
+import {renderProjects} from "./render-projects";
 
 
 function createElement(type, id, classes, text) {
@@ -24,6 +25,7 @@ function createElement(type, id, classes, text) {
 document.body.append(overlay(), mainPage())
 
 refreshTodos("default");
+renderProjects();
 addProjectListener();
 
 export {createElement}

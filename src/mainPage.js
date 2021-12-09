@@ -91,23 +91,7 @@ function mainPage() {
                     menuUnorderedList.append(menuListItem);
                 })
 
-                const projectUnorderedList = createElement("ul", null, ["list"]);
-
-                const headerDiv = createElement("div", null, ["add-project"], null);
-                const projectHeader = createElement("header", null, ["menu-item", "bold"], "Projects");
-                const addProject = createElement("div", "add-project", null, "+");
-
-                headerDiv.append(projectHeader, addProject)
-                projectUnorderedList.append(headerDiv);
-
-                projects.forEach((project) => {
-                    let projectListItem = createElement("li", null, ["menu-item"], project);
-                    projectListItem.addEventListener("click", () => {
-                        console.log(project);
-                        refreshTodos(project);
-                    })
-                    projectUnorderedList.append(projectListItem);
-                })
+                const projectUnorderedList = createElement("ul", "projects-list", ["list"]);
 
                 listHolderDiv.append(menuUnorderedList, projectUnorderedList)
                 leftMenuDiv.append(listHolderDiv);
