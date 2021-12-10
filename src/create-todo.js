@@ -1,13 +1,13 @@
-import {refreshTodos,} from "./mainPage";
+import {refreshTodos,} from "./main-page";
 import { compareAsc, format} from "date-fns";
+import moment from "moment";
 
 const todoFactory = (id, title, description, date)  => {
     return {id, title, description, date}
 };
 
 let projects = [
-    "default",
-    "exampleSecond",
+    "Default",
 ]
 
 let todos = {
@@ -15,30 +15,19 @@ let todos = {
         todos: [
             {
                 id: 0,
-                title: "Title",
-                description: "First Todo",
-                date: "Date DD/MM/YYYY",
+                title: "Default Title",
+                description: "First Todo!",
+                date: moment().format('MMMM Do YYYY'),
             },
 
         ]
     },
-    exampleSecond: {
-        todos: [
-            {
-                id: 0,
-                title: "Example Second",
-                description: "Second Todo",
-                date: "Date DD/MM/YYYY",
-            },
-
-        ]
-    }
 };
 
 function confirmAddTodo(project) {
     const titleText = document.getElementById("default-title").value;
     const descText = document.getElementById("default-desc").value;
-    const newTodo = todoFactory(todos[project].todos.length, titleText, descText, new Date());
+    const newTodo = todoFactory(todos[project].todos.length, titleText, descText, moment().format('MMMM Do YYYY'));
 
     if (titleText.length === 0) {
         window.alert("Please insert a title");

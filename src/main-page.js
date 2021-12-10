@@ -2,6 +2,7 @@ import {createElement} from "./index";
 import {projects,todos, confirmAddTodo} from "./create-todo";
 import {deleteTodo} from "./create-todo";
 import {addTodoUI} from "./add-todo-ui";
+import moment from "moment";
 
 let menuItems = [
     {
@@ -41,12 +42,16 @@ function refreshTodos(project) {
 
         let todoTextDiv = createElement("div", null, ["list-text"], todo.title);
         let todoDescription = createElement("p", null, null, todo.description);
-        todoTextDiv.append(todoDescription);
+        let dateDisplayDiv = createElement("div", null, ["todo-date"], todo.date);
+        todoTextDiv.append(todoDescription, dateDisplayDiv);
+
 
         listContentDiv.append(checkboxDiv, todoTextDiv);
         listItem.append(listContentDiv);
         todoUnorderedList.append(listItem);
     })
+    const pageHeader = document.getElementById("page-header");
+    pageHeader.textContent = `Project: ${project}`;
 
     const addTodoBtnListItem = createElement("li", "new-todo-list-item", ["todo", "todo-btn"]);
     const addTodoBtn = createElement("button", null, ["add-todo"], "+ Add Todo");
@@ -104,10 +109,12 @@ function mainPage() {
                 const editorDiv = createElement("div", "editor");
 
                 function viewHeader() {
+                    const todayDate = moment().format('MMMM Do YYYY');
+
                     const viewHeaderDiv = createElement("div", "view-header");
                     const headerContent = createElement("div", "header-content");
-                    const title = createElement("h1", null, null, "Today");
-                    const date = createElement("p", null, null, "Date");
+                    const title = createElement("h1", null, ["headings"], "Today");
+                    const date = createElement("p", null, ["headings"], todayDate);
 
                     headerContent.append(title, date);
                     viewHeaderDiv.append(headerContent);
@@ -124,7 +131,7 @@ function mainPage() {
                     const listCollection = createElement("ul", null, ["list-collection"]);
 
                     const defaultList = createElement("li", null, ["list"]);
-                    const defaultListHeader = createElement("header", null, ["todo-header", "todo"], " Todo List Group 1");
+                    const defaultListHeader = createElement("header", "page-header", ["todo-header", "todo"], " Todo List Group 1");
                     const todoUnorderedList = createElement("ul", "default", ["todo", "todo-list"]);
 
                     defaultList.append(defaultListHeader, todoUnorderedList);

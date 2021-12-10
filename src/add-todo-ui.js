@@ -1,6 +1,6 @@
 import {createElement} from "./index";
 import {confirmAddTodo} from "./create-todo";
-import {refreshTodos} from "./mainPage";
+import {refreshTodos} from "./main-page";
 
 function addTodoUI(project) {
     const newTodoListItem= document.getElementById("new-todo-list-item");

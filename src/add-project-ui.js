@@ -1,7 +1,7 @@
 import {createElement} from "./index";
 import {todos} from "./create-todo";
 import {projects} from "./create-todo";
-import {renderProjects} from "./render-projects";
+import {renderProjectsList} from "./render-projects-list";
 
 
 
@@ -16,7 +16,7 @@ function addProjectListener() {
         if (newProjectTitle.value.length !== 0 && (!todos[newProjectTitle.value])) {
             projects.push(newProjectTitle.value);
             updateTodoProjects(newProjectTitle.value);
-            renderProjects();
+            renderProjectsList();
             resetDropDown();
         } else {
             window.alert("Please Enter a Unique Project Name");

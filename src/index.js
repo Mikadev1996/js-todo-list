@@ -1,8 +1,8 @@
 import './style.css'
-import {mainPage} from "./mainPage";
-import {refreshTodos} from "./mainPage";
+import {mainPage} from "./main-page";
+import {refreshTodos} from "./main-page";
 import {addProjectListener, overlay} from "./add-project-ui";
-import {renderProjects} from "./render-projects";
+import {renderProjectsList} from "./render-projects-list";
 
 
 function createElement(type, id, classes, text) {
@@ -25,7 +25,7 @@ function createElement(type, id, classes, text) {
 document.body.append(overlay(), mainPage())
 
 refreshTodos("default");
-renderProjects();
+renderProjectsList();
 addProjectListener();
 
 export {createElement}
