@@ -13,25 +13,20 @@ function addProjectListener() {
 
 
     confirmProject.onclick = () => {
-        if (newProjectTitle.value.length !== 0) {
+        if (newProjectTitle.value.length !== 0 && (!todos[newProjectTitle.value])) {
             projects.push(newProjectTitle.value);
             updateTodoProjects(newProjectTitle.value);
             renderProjects();
             resetDropDown();
         } else {
-            window.alert("Please Enter a Project Name");
+            window.alert("Please Enter a Unique Project Name");
         }
     }
 
     function updateTodoProjects(project) {
         todos[project] = {
-            todo:  [
-                {
-                    id: 0,
-                    title: "Title",
-                    description: "First Todo",
-                    date: "Date DD/MM/YYY",
-                }
+            todos:  [
+
             ]
         }
     }

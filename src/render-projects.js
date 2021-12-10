@@ -1,4 +1,4 @@
-import {projects} from "./create-todo";
+import {projects, todos} from "./create-todo";
 import {createElement} from "./index";
 import {refreshTodos} from "./mainPage";
 
@@ -13,10 +13,10 @@ function renderProjects() {
     headerDiv.append(projectHeader, addProject)
     projectList.append(headerDiv);
     projects.forEach((project) => {
-        console.log(project);
+        console.log(project)
+        console.log(todos[project]);
         let projectListItem = createElement("li", null, ["menu-item"], project);
         projectListItem.addEventListener("click", () => {
-            console.log(project);
             refreshTodos(project);
         })
         projectList.append(projectListItem);
