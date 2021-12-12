@@ -21,7 +21,13 @@ function addTodoUI(project) {
         desc.placeholder = "Description";
         descSpan.append(desc);
 
-        inputSection.append(titleSpan, descSpan);
+        const calenderDiv = createElement("div", null, ["calendar-div"]);
+        const calendar = createElement("input", `${project}-calendar`, ["calendar"]);
+        calendar.type = "date";
+
+
+        calenderDiv.append(calendar);
+        inputSection.append(titleSpan, descSpan, calenderDiv);
 
         function options() {
             const optionsDiv = createElement("div", null, ["options"]);

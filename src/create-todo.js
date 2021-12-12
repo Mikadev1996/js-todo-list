@@ -11,7 +11,7 @@ let projects = [
 ]
 
 let todos = {
-    default: {
+    Default: {
         todos: [
             {
                 id: 0,
@@ -27,7 +27,8 @@ let todos = {
 function confirmAddTodo(project) {
     const titleText = document.getElementById("default-title").value;
     const descText = document.getElementById("default-desc").value;
-    const newTodo = todoFactory(todos[project].todos.length, titleText, descText, moment().format('MMMM Do YYYY'));
+    const date = document.getElementById(`${project}-calendar`).value;
+    const newTodo = todoFactory(todos[project].todos.length, titleText, descText, date);
 
     if (titleText.length === 0) {
         window.alert("Please insert a title");

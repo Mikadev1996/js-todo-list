@@ -24,7 +24,7 @@ function createElement(type, id, classes, text) {
 
 document.body.append(overlay(), mainPage())
 
-refreshTodos("default");
+refreshTodos("Default");
 renderProjectsList();
 addProjectListener();
 

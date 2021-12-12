@@ -45,7 +45,6 @@ function refreshTodos(project) {
         let dateDisplayDiv = createElement("div", null, ["todo-date"], todo.date);
         todoTextDiv.append(todoDescription, dateDisplayDiv);
 
-
         listContentDiv.append(checkboxDiv, todoTextDiv);
         listItem.append(listContentDiv);
         todoUnorderedList.append(listItem);
@@ -98,7 +97,7 @@ function mainPage() {
 
                 const projectUnorderedList = createElement("ul", "projects-list", ["list"]);
 
-                listHolderDiv.append(menuUnorderedList, projectUnorderedList)
+                listHolderDiv.append(menuUnorderedList, projectUnorderedList);
                 leftMenuDiv.append(listHolderDiv);
                 leftMenuDiv.append(listHolderDiv);
 
@@ -115,6 +114,7 @@ function mainPage() {
                     const headerContent = createElement("div", "header-content");
                     const title = createElement("h1", null, ["headings"], "Today");
                     const date = createElement("p", null, ["headings"], todayDate);
+
 
                     headerContent.append(title, date);
                     viewHeaderDiv.append(headerContent);
