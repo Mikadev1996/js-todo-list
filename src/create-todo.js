@@ -28,7 +28,12 @@ function confirmAddTodo(project) {
     const titleText = document.getElementById("default-title").value;
     const descText = document.getElementById("default-desc").value;
     const date = document.getElementById(`${project}-calendar`).value;
-    const newTodo = todoFactory(todos[project].todos.length, titleText, descText, date);
+    let dateArray = date.split("-").join("");
+    let dateFormatted = moment(dateArray).format("MMMM Do YYYY");
+
+    const newTodo = todoFactory(todos[project].todos.length, titleText, descText, dateFormatted);
+
+
 
     if (titleText.length === 0) {
         window.alert("Please insert a title");

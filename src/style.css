@@ -318,9 +318,6 @@ p {
     height: 200px;
 }
 
-#editor {
-    transition: all 0.4s ease-in;
-}
 
 #project-header {
     height: 50px;
@@ -368,4 +365,9 @@ p {
     align-items: center;
     justify-content: center;
     width: 200px;
+}
+
+.calendar {
+    background: grey;
+    border-radius: 3px;
 }
