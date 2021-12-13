@@ -4,20 +4,7 @@ import {deleteTodo} from "./create-todo";
 import {addTodoUI} from "./add-todo-ui";
 import moment from "moment";
 
-let menuItems = [
-    {
-        id: 1,
-        menu: "Inbox",
-    },
-    {
-        id: 2,
-        menu: "Today",
-    },
-    {
-      id: 3,
-      menu: "Week",
-    },
-];
+
 
 function refreshTodos(project) {
     const todoUnorderedList = document.getElementById("default");
@@ -88,12 +75,7 @@ function mainPage() {
             function leftMenu() {
                 const leftMenuDiv = createElement("div", "left-menu");
                 const listHolderDiv = createElement("div", "list-holder");
-                const menuUnorderedList = createElement("ul", null, ["list"]);
-
-                menuItems.forEach((item) => {
-                    let menuListItem = createElement("li", null, ["menu-item"], item.menu);
-                    menuUnorderedList.append(menuListItem);
-                })
+                const menuUnorderedList = createElement("ul", "filters-list", ["list"]);
 
                 const projectUnorderedList = createElement("ul", "projects-list", ["list"]);
 

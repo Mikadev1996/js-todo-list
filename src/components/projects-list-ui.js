@@ -2,7 +2,7 @@ import {projects, todos} from "./create-todo";
 import {createElement} from "./index";
 import {refreshTodos} from "./main-page";
 
-function renderProjectsList() {
+function projectsListUi() {
     const projectList = document.getElementById("projects-list");
     projectList.innerHTML = "";
 
@@ -21,4 +21,4 @@ function renderProjectsList() {
     })
 }
 
-export {renderProjectsList}
+export {projectsListUi}
