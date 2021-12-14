@@ -1,5 +1,5 @@
 import {createElement} from "./index";
-import {projects,todos, confirmAddTodo} from "./create-todo";
+import {todos} from "./create-todo";
 import {deleteTodo} from "./create-todo";
 import {addTodoUI} from "./add-todo-ui";
 import moment from "moment";

@@ -1,7 +1,4 @@
 import {createElement} from "./index";
-import {todos} from "./create-todo";
-import {projects} from "./create-todo";
-import {projectsListUi} from "./projects-list-ui";
 
 function overlay() {
     const overlay = createElement("div", "overlay");

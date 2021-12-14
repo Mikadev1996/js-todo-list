@@ -1,5 +1,4 @@
 import {refreshTodos,} from "./main-page";
-import { compareAsc, format} from "date-fns";
 import moment from "moment";
 
 const todoFactory = (id, title, description, date)  => {
