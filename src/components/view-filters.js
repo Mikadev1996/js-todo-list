@@ -1,6 +1,7 @@
 import {createElement} from "./index.js";
 import {todos} from "./create-todo";
 import {projects} from "./create-todo";
+import {refreshTodos} from "./todo-list-ui";
 
 let menuItems = ["Inbox", "Today", "Week"];
 
@@ -29,6 +30,7 @@ function filtersList() {
 
             test.forEach((todo) => {
                 console.log(test, project, todo.title, todo.description, todo.date);
+                refreshTodos(project);
             })
         })
     }

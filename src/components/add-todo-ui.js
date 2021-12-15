@@ -1,6 +1,6 @@
 import {createElement} from "./index";
 import {confirmAddTodo} from "./create-todo";
-import {refreshTodos} from "./main-page";
+import {refreshTodos, resetTodoList, test} from "./todo-list-ui";
 
 function addTodoUI(project) {
     const newTodoListItem= document.getElementById("new-todo-list-item");
@@ -43,7 +43,7 @@ function addTodoUI(project) {
             const cancelBtn = createElement("button", null, ["option-btn", "cancel-add-todo"], "Cancel");
             confirmDiv.append(cancelBtn)
             cancelBtn.onclick = () => {
-                refreshTodos(project);
+                test(project);
             }
 
             optionsDiv.append(confirmDiv, cancelDiv);

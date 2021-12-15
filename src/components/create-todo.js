@@ -1,5 +1,5 @@
-import {refreshTodos,} from "./main-page";
 import moment from "moment";
+import {refreshTodos, resetTodoList, test} from "./todo-list-ui";
 
 const todoFactory = (id, title, description, date)  => {
     return {id, title, description, date}
@@ -38,7 +38,7 @@ function confirmAddTodo(project) {
         window.alert("Please insert a title");
     } else {
         todos[project].todos.push(newTodo)
-        refreshTodos(project);
+        test(project);
     }
 }
 
@@ -50,7 +50,7 @@ function deleteTodo(project, id) {
                 break;
         }
     }
-    refreshTodos(project);
+    test(project);
 }
 
 export {confirmAddTodo, projects, todos, deleteTodo};
