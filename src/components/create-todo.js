@@ -50,7 +50,6 @@ function deleteTodo(project, id) {
                 break;
         }
     }
-    refreshTodos(project);
 }
 
 export {confirmAddTodo, projects, todos, deleteTodo};

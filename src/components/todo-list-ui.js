@@ -31,8 +31,12 @@ function todoListUi(project) {
         let checkBoxBtn = createElement("button", `checkbox-${todo.id}`, ["checkbox-btn"]);
 
         checkBoxBtn.onclick = () => {
+            console.log(this);
             deleteTodo(project, todo.id);
+            refreshTodos(project);
         }
+        //move this to own function which resets, then copy delete
+        //todo to viewfilters and create new reset function
 
         let checkboxImage = createElement("img", null, ["checkbox"]);
         checkboxImage.src = "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-check-mark-circle-thin.png&r=242&g=242&b=242";
