@@ -41,6 +41,8 @@ function createProject() {
     }
 
     function resetDropDown() {
+        const projectName = document.getElementById("project-name-input");
+        projectName.value = "";
         overlay.style.opacity = "0";
         overlay.style.pointerEvents = "none";
     }

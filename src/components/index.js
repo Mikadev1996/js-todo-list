@@ -4,7 +4,7 @@ import {overlay} from "./add-project-ui";
 import {createProject} from "./create-project";
 import {projectsListUi} from "./projects-list-ui";
 import {filtersList} from "./view-filters";
-import {refreshTodos, resetTodoList, test} from "./todo-list-ui";
+import {todoListUi, resetTodoList, refreshTodos} from "./todo-list-ui";
 
 
 function createElement(type, id, classes, text) {
@@ -25,7 +25,7 @@ function createElement(type, id, classes, text) {
 
 console.log(new Date().getSeconds());
 document.body.append(overlay(), mainPage())
-test("Default");
+refreshTodos("Default");
 filtersList();
 projectsListUi();
 createProject();

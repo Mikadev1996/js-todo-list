@@ -19,7 +19,7 @@ function addTodoBtn(project) {
     };
 }
 
-function refreshTodos(project) {
+function todoListUi(project) {
     const todoUnorderedList = document.getElementById("default");
 
     const todoList = todos[project].todos;
@@ -39,7 +39,7 @@ function refreshTodos(project) {
         checkBoxBtn.append(checkboxImage);
         checkboxDiv.append(checkBoxBtn);
 
-        let todoTextDiv = createElement("div", null, ["list-text"], todo.title);
+        let todoTextDiv = createElement("div", `${project}-list-text`, ["list-text"], todo.title);
         let todoDescription = createElement("p", null, null, todo.description);
         let dateDisplayDiv = createElement("div", null, ["todo-date"], todo.date);
         todoTextDiv.append(todoDescription, dateDisplayDiv);
@@ -54,12 +54,12 @@ function refreshTodos(project) {
     return todoUnorderedList;
 }
 
-function test(project) {
+function refreshTodos(project) {
     resetTodoList();
-    refreshTodos(project);
+    todoListUi(project);
     addTodoBtn(project);
 }
 
-export {refreshTodos};
+export {todoListUi};
 export {resetTodoList};
-export {test}
+export {refreshTodos}

@@ -1,6 +1,6 @@
 import {projects, todos} from "./create-todo";
 import {createElement} from "./index";
-import {refreshTodos, resetTodoList, test} from "./todo-list-ui";
+import {todoListUi, resetTodoList, refreshTodos} from "./todo-list-ui";
 
 function projectsListUi() {
     const projectList = document.getElementById("projects-list");
@@ -15,7 +15,7 @@ function projectsListUi() {
     projects.forEach((project) => {
         let projectListItem = createElement("li", null, ["menu-item"], project);
         projectListItem.addEventListener("click", () => {
-            test(project);
+            refreshTodos(project);
         })
         projectList.append(projectListItem);
     })

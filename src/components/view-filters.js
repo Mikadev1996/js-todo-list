@@ -1,7 +1,7 @@
 import {createElement} from "./index.js";
 import {todos} from "./create-todo";
 import {projects} from "./create-todo";
-import {refreshTodos} from "./todo-list-ui";
+import {todoListUi} from "./todo-list-ui";
 
 let menuItems = ["Inbox", "Today", "Week"];
 
@@ -30,9 +30,17 @@ function filtersList() {
 
             test.forEach((todo) => {
                 console.log(test, project, todo.title, todo.description, todo.date);
-                refreshTodos(project);
+                todoListUi(project);
+                let projectName = createElement("p", null, null, `Project: ${project}`);
+                projectName.style.color = "darkred";
+                let listText = document.getElementById(`${project}-list-text`);
+                listText.append(projectName);
             })
         })
+
+        const pageHeader = document.getElementById("page-header");
+        pageHeader.textContent = "All Projects";
+
     }
 
     function filterToday() {
