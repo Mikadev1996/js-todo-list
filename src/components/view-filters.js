@@ -1,4 +1,6 @@
 import {createElement} from "./index.js";
+import {todos} from "./create-todo";
+import {projects} from "./create-todo";
 
 let menuItems = ["Inbox", "Today", "Week"];
 
@@ -18,17 +20,26 @@ function filtersList() {
     today.onclick = () => filterToday();
     week.onclick = () => filterWeek();
 
+    const todoListElement = document.getElementById("default");
+
     function filterInbox() {
-        console.log("inbox");
+        todoListElement.innerHTML = "";
+        projects.forEach(project => {
+            let test = todos[project].todos;
+
+            test.forEach((todo) => {
+                console.log(test, project, todo.title, todo.description, todo.date);
+            })
+        })
     }
 
     function filterToday() {
-        console.log("today");
+        todoListElement.innerHTML = "";
 
     }
 
     function filterWeek() {
-        console.log("week")
+        todoListElement.innerHTML = "";
     }
 }
 
