@@ -28,15 +28,7 @@ function todoListUi(project) {
 
         let listContentDiv = createElement("div", null, ["list-content"]);
         let checkboxDiv = createElement("div", null, ["checkbox-div"]);
-        let checkBoxBtn = createElement("button", `checkbox-${todo.id}`, ["checkbox-btn"]);
-
-        // checkBoxBtn.onclick = () => {
-        //     deleteTodoInProject(project, todo.id);
-        //     refreshTodos(project);
-        // }
-
-        //move this to own function which resets, then copy delete
-        //todo to viewfilters and create new reset function
+        let checkBoxBtn = createElement("button", `${project}-checkbox-${todo.id}`, ["checkbox-btn"]);
 
         let checkboxImage = createElement("img", null, ["checkbox"]);
         checkboxImage.src = "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-check-mark-circle-thin.png&r=242&g=242&b=242";
@@ -61,7 +53,7 @@ function todoListUi(project) {
 function checkButtonDeleteTodo(project) {
     const todoList = todos[project].todos;
     todoList.forEach((todo) => {
-        let checkBoxBtn = document.getElementById(`checkbox-${todo.id}`)
+        let checkBoxBtn = document.getElementById(`${project}-checkbox-${todo.id}`)
         checkBoxBtn.onclick = () => {
             deleteTodoInProject(project, todo.id);
             refreshTodos(project);

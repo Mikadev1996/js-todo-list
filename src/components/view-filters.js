@@ -36,9 +36,8 @@ function filtersList() {
                 let listText = document.getElementById(`${project}-list-text-${todo.id}`);
                 listText.append(projectName);
 
-                console.log("filter inbox: ", project, todo.id)
-                let test2 = document.getElementById(`checkbox-${todo.id}`);
-                test2.onclick = () => {
+                let checkbox = document.getElementById(`${project}-checkbox-${todo.id}`);
+                checkbox.onclick = () => {
                     deleteTodoInProject(project, todo.id);
                     resetTodoList();
                     filterInbox();

@@ -4,7 +4,7 @@ import {overlay} from "./add-project-ui";
 import {createProject} from "./create-project";
 import {projectsListUi} from "./projects-list-ui";
 import {filtersList} from "./view-filters";
-import {todoListUi, resetTodoList, refreshTodos} from "./todo-list-ui";
+import {refreshTodos} from "./todo-list-ui";
 
 
 function createElement(type, id, classes, text) {
