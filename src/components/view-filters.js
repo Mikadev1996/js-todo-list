@@ -1,7 +1,7 @@
 import {createElement} from "./index.js";
-import {todos} from "./create-todo";
+import {deleteTodoInProject, todos} from "./create-todo";
 import {projects} from "./create-todo";
-import {todoListUi} from "./todo-list-ui";
+import {resetTodoList, todoListUi} from "./todo-list-ui";
 
 let menuItems = ["Inbox", "Today", "Week"];
 
@@ -25,16 +25,24 @@ function filtersList() {
 
     function filterInbox() {
         todoListElement.innerHTML = "";
-        projects.forEach(project => {
-            let test = todos[project].todos;
 
-            test.forEach((todo) => {
-                console.log(test, project, todo.title, todo.description, todo.date);
-                todoListUi(project);
+        projects.forEach((project) => {
+            let todoCollection = todos[project].todos;
+            todoListUi(project);
+
+            todoCollection.forEach((todo) => {
                 let projectName = createElement("p", null, null, `Project: ${project}`);
                 projectName.style.color = "darkred";
-                let listText = document.getElementById(`${project}-list-text`);
+                let listText = document.getElementById(`${project}-list-text-${todo.id}`);
                 listText.append(projectName);
+
+                console.log("filter inbox: ", project, todo.id)
+                let test2 = document.getElementById(`checkbox-${todo.id}`);
+                test2.onclick = () => {
+                    deleteTodoInProject(project, todo.id);
+                    resetTodoList();
+                    filterInbox();
+                }
             })
         })
 

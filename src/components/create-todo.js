@@ -7,6 +7,7 @@ const todoFactory = (id, title, description, date)  => {
 
 let projects = [
     "Default",
+    "Second",
 ]
 
 let todos = {
@@ -18,8 +19,24 @@ let todos = {
                 description: "First Todo!",
                 date: moment().format('MMMM Do YYYY'),
             },
-
+            {
+                id: 1,
+                title: "test",
+                description: "Second",
+                date: moment().format('MMMM Do YYYY'),
+            },
         ]
+    },
+    Second: {
+        todos: [
+            {
+                id: 0,
+                title: "Second Title",
+                description: "Second Description!",
+                date: moment().format('MMMM Do YYYY'),
+            },
+        ]
+
     },
 };
 
@@ -42,8 +59,9 @@ function confirmAddTodo(project) {
     }
 }
 
-function deleteTodo(project, id) {
+function deleteTodoInProject(project, id) {
     const todoList = todos[project].todos;
+    console.log("delete todos: ", project, todoList)
     for (let i = 0; i < todoList.length; i++) {
             if (todoList[i].id === id) {
                 todoList.splice(i, 1);
@@ -52,5 +70,5 @@ function deleteTodo(project, id) {
     }
 }
 
-export {confirmAddTodo, projects, todos, deleteTodo};
+export {confirmAddTodo, projects, todos, deleteTodoInProject};
 

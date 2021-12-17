@@ -1,4 +1,4 @@
-import {deleteTodo, todos} from "./create-todo";
+import {deleteTodoInProject, todos} from "./create-todo";
 import {createElement} from "./index";
 import {addTodoUI} from "./add-todo-ui";
 
@@ -30,11 +30,11 @@ function todoListUi(project) {
         let checkboxDiv = createElement("div", null, ["checkbox-div"]);
         let checkBoxBtn = createElement("button", `checkbox-${todo.id}`, ["checkbox-btn"]);
 
-        checkBoxBtn.onclick = () => {
-            console.log(this);
-            deleteTodo(project, todo.id);
-            refreshTodos(project);
-        }
+        // checkBoxBtn.onclick = () => {
+        //     deleteTodoInProject(project, todo.id);
+        //     refreshTodos(project);
+        // }
+
         //move this to own function which resets, then copy delete
         //todo to viewfilters and create new reset function
 
@@ -43,7 +43,7 @@ function todoListUi(project) {
         checkBoxBtn.append(checkboxImage);
         checkboxDiv.append(checkBoxBtn);
 
-        let todoTextDiv = createElement("div", `${project}-list-text`, ["list-text"], todo.title);
+        let todoTextDiv = createElement("div", `${project}-list-text-${todo.id}`, ["list-text"], todo.title);
         let todoDescription = createElement("p", null, null, todo.description);
         let dateDisplayDiv = createElement("div", null, ["todo-date"], todo.date);
         todoTextDiv.append(todoDescription, dateDisplayDiv);
@@ -58,10 +58,22 @@ function todoListUi(project) {
     return todoUnorderedList;
 }
 
+function checkButtonDeleteTodo(project) {
+    const todoList = todos[project].todos;
+    todoList.forEach((todo) => {
+        let checkBoxBtn = document.getElementById(`checkbox-${todo.id}`)
+        checkBoxBtn.onclick = () => {
+            deleteTodoInProject(project, todo.id);
+            refreshTodos(project);
+        }
+    })
+}
+
 function refreshTodos(project) {
     resetTodoList();
     todoListUi(project);
     addTodoBtn(project);
+    checkButtonDeleteTodo(project)
 }
 
 export {todoListUi};
