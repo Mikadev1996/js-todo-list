@@ -58,7 +58,7 @@ function checkButtonDeleteTodo(project) {
             deleteTodoInProject(project, todo.id);
             refreshTodos(project);
         }
-    })
+    });
 }
 
 function refreshTodos(project) {

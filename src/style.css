@@ -76,7 +76,7 @@ p {
 #top-bar {
     box-shadow: 0 2px 3px 0 rgb(0 0 0 / 15%);
     height: 44px;
-    background: darkgray;
+    background: #171717;
 }
 
 #top-bar-content {
@@ -107,7 +107,25 @@ p {
 
 .menu-item {
     padding: 10px;
+    display: flex;
 }
+
+.remove-cross {
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    margin-left: 160px;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.remove-cross:hover {
+    opacity: 1;
+}
+
+
+
+
 
 @media only screen and (max-width: 550px) {
 
@@ -371,3 +389,4 @@ p {
     background: grey;
     border-radius: 3px;
 }
+
