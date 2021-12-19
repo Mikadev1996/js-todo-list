@@ -1,4 +1,4 @@
-import {deleteTodoInProject, todos} from "./create-todo";
+import {deleteTodoInProject, todos, updateLocalStorage} from "./create-todo";
 import {createElement} from "./index";
 import {addTodoUI} from "./add-todo-ui";
 
@@ -66,6 +66,7 @@ function refreshTodos(project) {
     todoListUi(project);
     addTodoBtn(project);
     checkButtonDeleteTodo(project)
+    updateLocalStorage();
 }
 
 export {todoListUi};

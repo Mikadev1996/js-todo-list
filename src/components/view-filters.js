@@ -3,7 +3,7 @@ import {deleteTodoInProject, todos} from "./create-todo";
 import {projects} from "./create-todo";
 import {resetTodoList, todoListUi} from "./todo-list-ui";
 
-let menuItems = ["Inbox", "Today", "Week"];
+let menuItems = ["Inbox"];
 
 function filtersList() {
     const filtersListElement = document.getElementById("filters-list")
@@ -14,12 +14,12 @@ function filtersList() {
     })
 
     const inbox = document.getElementById("filter-inbox");
-    const today = document.getElementById("filter-today");
-    const week = document.getElementById("filter-week");
+    // const today = document.getElementById("filter-today");
+    // const week = document.getElementById("filter-week");
 
     inbox.onclick = () => filterInbox();
-    today.onclick = () => filterToday();
-    week.onclick = () => filterWeek();
+    // today.onclick = () => filterToday();
+    // week.onclick = () => filterWeek();
 
     const todoListElement = document.getElementById("default");
 
@@ -52,11 +52,15 @@ function filtersList() {
 
     function filterToday() {
         todoListElement.innerHTML = "";
+        const pageHeader = document.getElementById("page-header");
+        pageHeader.textContent = "Today";
 
     }
 
     function filterWeek() {
         todoListElement.innerHTML = "";
+        const pageHeader = document.getElementById("page-header");
+        pageHeader.textContent = "Week";
     }
 }
 

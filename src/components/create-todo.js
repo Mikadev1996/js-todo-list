@@ -44,11 +44,7 @@ function confirmAddTodo(project) {
     const titleText = document.getElementById("default-title").value;
     const descText = document.getElementById("default-desc").value;
     const date = document.getElementById(`${project}-calendar`).value;
-    let dateArray = date.split("-").join("");
-    let dateFormatted = moment(dateArray).format("MMMM Do YYYY");
-
-    const newTodo = todoFactory(todos[project].todos.length, titleText, descText, dateFormatted);
-
+    const newTodo = todoFactory(todos[project].todos.length, titleText, descText, date);
 
 
     if (titleText.length === 0) {
@@ -70,5 +66,10 @@ function deleteTodoInProject(project, id) {
     }
 }
 
-export {confirmAddTodo, projects, todos, deleteTodoInProject};
+function updateLocalStorage() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("projects", JSON.stringify(projects));
+}
+
+export {confirmAddTodo, projects, todos, deleteTodoInProject, updateLocalStorage};
 

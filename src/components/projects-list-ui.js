@@ -29,6 +29,14 @@ function projectsListUi() {
             projectRemoveBtn.style.opacity = "0";
         })
 
+        projectRemoveBtn.addEventListener("mouseover", () => {
+            projectRemoveBtn.style.opacity = "0.7";
+        })
+
+        projectRemoveBtn.addEventListener("mouseleave", () => {
+            projectRemoveBtn.style.opacity = "0";
+        })
+
         projectRemoveBtn.onclick = () => {
             for (let i = 0; i < projects.length; i++) {
                 if (projects[i] === project) {
@@ -52,7 +60,7 @@ function projectsListUi() {
             projectsListUi();
         }
 
-        listItemDiv.append(projectListItem ,projectRemoveBtn);
+        listItemDiv.append(projectListItem, projectRemoveBtn);
         projectList.append(listItemDiv);
     })
 }

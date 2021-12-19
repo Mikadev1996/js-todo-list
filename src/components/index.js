@@ -1,4 +1,6 @@
 import '../style.css'
+import {todos} from "./create-todo";
+import {projects} from "./create-todo";
 import {mainPage} from "./main-page";
 import {overlay} from "./add-project-ui";
 import {createProject} from "./create-project";
@@ -23,9 +25,18 @@ function createElement(type, id, classes, text) {
     return element;
 }
 
-console.log(new Date().getSeconds());
+function restoreLocalStorage() {
+    let storedTodos = JSON.parse(localStorage.getItem("todos"));
+    let storedProjects = JSON.parse(localStorage.getItem("projects"));
+
+
+    todos = storedTodos;
+    projects = storedProjects;
+    refreshTodos("Default")
+}
+
 document.body.append(overlay(), mainPage())
-refreshTodos("Default");
+restoreLocalStorage();
 filtersList();
 projectsListUi();
 createProject();
