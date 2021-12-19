@@ -19,25 +19,8 @@ let todos = {
                 description: "First Todo!",
                 date: moment().format('MMMM Do YYYY'),
             },
-            {
-                id: 1,
-                title: "test",
-                description: "Second",
-                date: moment().format('MMMM Do YYYY'),
-            },
         ]
-    },
-    Second: {
-        todos: [
-            {
-                id: 0,
-                title: "Second Title",
-                description: "Second Description!",
-                date: moment().format('MMMM Do YYYY'),
-            },
-        ]
-
-    },
+    }
 };
 
 function confirmAddTodo(project) {
@@ -72,4 +55,3 @@ function updateLocalStorage() {
 }
 
 export {confirmAddTodo, projects, todos, deleteTodoInProject, updateLocalStorage};
-

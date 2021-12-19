@@ -28,8 +28,6 @@ function createElement(type, id, classes, text) {
 function restoreLocalStorage() {
     let storedTodos = JSON.parse(localStorage.getItem("todos"));
     let storedProjects = JSON.parse(localStorage.getItem("projects"));
-
-
     todos = storedTodos;
     projects = storedProjects;
     refreshTodos("Default")
