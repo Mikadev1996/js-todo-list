@@ -1,5 +1,6 @@
 import {createElement} from "./index";
 import moment from "moment";
+import {todos} from "./create-todo";
 
 function mainPage() {
     const app = createElement("div", "app");
@@ -7,7 +8,22 @@ function mainPage() {
     function navBar() {
         const nav = createElement("nav", "top-bar");
         const titleDiv = createElement("div", "top-bar-content", null, "JavaScript");
-        const title = createElement("strong", "", null, "Todo-list");
+        const title = createElement("strong", null, null, "Todo-list");
+        title.onclick = () => {
+            todos = {
+                Default: {
+                    todos: [
+                        {
+                            id: 0,
+                            title: "Default Title",
+                            description: "First Todo!",
+                            date: moment().format('MMMM Do YYYY'),
+                        },
+                    ]
+                }
+            };
+
+        }
 
         titleDiv.append(title);
         nav.append(titleDiv);
